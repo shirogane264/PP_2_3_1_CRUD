@@ -9,5 +9,5 @@ public interface CarService {
     void addCar(Car car);
     List<Car> getCars();
 
-    public List<User> getUser(String model, int series);
+    List<User> getUser(String model, int series);
 }
