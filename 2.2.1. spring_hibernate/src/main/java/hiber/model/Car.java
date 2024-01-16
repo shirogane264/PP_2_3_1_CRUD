@@ -15,6 +15,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne(mappedBy = "car")
+    User user;
+
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
@@ -49,5 +52,13 @@ public class Car {
 
     public Long getId() {
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
