@@ -25,17 +25,17 @@
 
     <tbody>
     <tr th:each="user : ${users}">
-        <td><a th:href="@{'/' + ${user.id}}" th:utext="${user.id}">UserId</a></td>
+        <td><a th:href="@{'/user?id=' + ${user.id}}" th:utext="${user.id}">UserId</a></td>
         <td th:text="${user.name}"/>
         <td th:text="${user.lastName}"/>
         <td th:text="${user.age}"/>
         <td>
-            <form th:action="@{'edit/' + ${user.id}}">
+            <a th:href="@{'/edit?id=' + ${user.id}}">
                 <input type="submit" class="buttonEdit" value="Edit"/>
-            </form>
+            </a>
         </td>
         <td>
-            <form th:method="DELETE" th:action="@{'delete/' + ${user.id}}">
+            <form th:method="POST" th:action="@{'/delete?id=' + ${user.id}}">
                 <input type="submit" class="buttonDelete" value="Delete"/>
             </form>
         </td>
