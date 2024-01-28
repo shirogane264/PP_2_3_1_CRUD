@@ -1,14 +1,15 @@
 package web.dao;
 
-import org.springframework.stereotype.Component;
+
+import org.springframework.stereotype.Repository;
 import web.model.User;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@Component
-
+@Repository
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
@@ -40,6 +41,6 @@ public class UserDaoImpl implements UserDao {
     public User getUserId(long id) {
         TypedQuery<User> query = entityManager.createQuery("from User as user where user.id =:user_id", User.class);
         query.setParameter("user_id", id);
-        return query.getResultList().stream().findAny().orElse(null);
+        return query.getSingleResult();
     }
 }
