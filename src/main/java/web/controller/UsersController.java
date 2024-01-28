@@ -29,9 +29,8 @@ public class UsersController {
         return "user";
     }
 
-
     @GetMapping("/new")
-    public String addUser(User user) {
+    public String addUser() {
         return "create";
     }
 
